@@ -83,7 +83,6 @@ let array =  [1,2,3,4,5];
 let [a, b, c, d, e] = array;
 console.log(array);
 // Realiza la misma tarea para el objeto { nombre: "Alice", edad: 25 }.
-
 // Ejercicio 7: Sets y Eliminación de Duplicados
 // Dado el siguiente array con nombres repetidos:
 const NOMBRES = ["Ana", "Juan", "Luis", "Ana", "Luis", "María"];
@@ -91,3 +90,23 @@ const NOMBRES = ["Ana", "Juan", "Luis", "Ana", "Luis", "María"];
 let nombresNoDuplicados = new Set(NOMBRES);
 // Convierte el set de nuevo en un array y muestra la lista de nombres únicos.
 let nombreNoDuplicados = Array.from(new Set(NOMBRES));
+
+const packOfGifts = ["book", "doll", "ball"]
+const reindeers = ["dasher", "dancer"]
+console.log(packOfGifts);
+
+function distributeGifts(packOfGifts, reindeers) {
+    let pesoTotal=0;
+    let pesoRegalo=0;
+    reindeers.forEach((reno) => {
+        pesoTotal+=reno.length;
+    })
+
+    packOfGifts.forEach((regalo) => {
+        pesoRegalo+=regalo.length;
+    })
+    
+    return Math.floor(pesoTotal*2/pesoRegalo);
+  }
+
+  console.log(distributeGifts(packOfGifts,reindeers))
