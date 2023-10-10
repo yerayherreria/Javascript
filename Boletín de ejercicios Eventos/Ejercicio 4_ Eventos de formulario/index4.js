@@ -3,14 +3,16 @@
 
 4.2. Agrega una función que dispare un evento personalizado "formularioEnviado" cuando se envíe el formulario con éxito. Escucha este evento y muestra un mensaje personalizado en la consola cuando se dispare. */
 
-let enviar = document.getElementById('.botonEnviar');
+let enviar = document.querySelector('button');
 
-
-/*document.getElementById('botonEnviar').addEventListener('click', function() {
-  var formulario = document.getElementById('formulario');
-  if (formulario.checkValidity()) {
-    alert('¡Formulario enviado con éxito!');
+enviar.addEventListener('click',function(){
+  let nombre=document.getElementById('.nombre');
+  let email=document.getElementById('.email');
+  if(nombre!="" && email!=""){
+    console.log("Correcto");
   } else {
-    formulario.reportValidity();
+    console.log("Error");
   }
-});*/
+})
+
+
