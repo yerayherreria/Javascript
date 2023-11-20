@@ -60,7 +60,7 @@ const checkEmail = async () => {
   let valid = false;
   const email = emailEl.value.trim();
   
-  const reponseComprobacion = await fetch(`${urlUsers}?email=${emailEl.value}`);
+  const reponseComprobacion = await fetch(`http://localhost:3000/users?email=${emailEl.value}`);
   const responseComprobacionJson = await reponseComprobacion.json();
   
   if (!isRequired(email)) {
