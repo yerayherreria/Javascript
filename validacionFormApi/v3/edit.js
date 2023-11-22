@@ -1,8 +1,26 @@
+const urlParams = new URLSearchParams(window.location.search);
+let idURL = urlParams.get("id");
+const inputName = document.getElementById("inputartistname");
+const inputCategory = document.getElementById("inputcategory");
+const inputDuration = document.getElementById("inputduration");
+const inputDate = document.getElementById("inputpremieredate");
+
 const artistname = document.getElementById('artistname');
 const category = document.getElementById('category');
 const duration = document.getElementById('duration');
 const premieredate = document.getElementById('premieredate');
 const form = document.getElementById('form');
+
+fetch('http://localhost:3000/songs/'+idURL)
+.then((respose) => respose.json())
+.then(data => {
+    console.log(data)
+    artistname.value=data.name;
+    category.value=data.category;
+    duration.value=data.duration;
+    premieredate.value=data.date;
+})
+
 
 const showError = (input, message) => {
   const formField = input.parentElement;
@@ -113,10 +131,11 @@ const checkDate = () => {
 };
 premieredate.addEventListener("change",checkDate);
 
-form.addEventListener('submit', function () {
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
   const song = {name:artistname.value,category:category.value,duration:duration.value,date:premieredate.value}
-  fetch("http://localhost:3000/songs",{
-      method : "POST",
+  fetch("http://localhost:3000/songs/"+idURL,{
+      method : "PUT",
       body : JSON.stringify(song),
       headers : {
           "Content-type" : "application/json"
@@ -130,4 +149,5 @@ form.addEventListener('submit', function () {
   })
   .catch(err => alert(err));
   alert("Formulario enviado");
+  form.reset();
 });

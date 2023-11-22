@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Form Validation Demo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="container">
+    <form id="form">
+      <h1>Edit Song</h1>
+      <div class="form-group">
+        <label for="artistname">Name of artist:</label>
+        <input type="text" class="form-control" id="artistname" aria-describedby="emailHelp" placeholder="Enter name of artist">
+        <small></small>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" class="form-control" id="category" aria-describedby="emailHelp" placeholder="Enter category">
+        <small></small>
+      </div>
+      <div class="form-group">
+        <label for="duration">Duration:</label>
+        <input type="number" class="form-control" id="duration" aria-describedby="emailHelp" placeholder="Enter duration" min="0" max="30">
+        <small></small>
+      </div>
+      <div class="form-group">
+        <label for="premieredate">Premiere date:</label>
+        <input type="text" class="form-control" id="premieredate" placeholder="Enter date">
+        <small></small>
+      </div>
+      <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+    <p><a class="link-opacity-100" href="list.html">View list</a></p>
+  </div>
+  <script src="edit.js"></script>
+</body>
+</html>

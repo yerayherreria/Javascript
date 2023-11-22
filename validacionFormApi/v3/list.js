@@ -50,7 +50,7 @@ function getApi(){
             let li = document.createElement("li");
             li.classList.add("list-group-item");
             let a = document.createElement("a");
-            a.setAttribute("href",`index.html?name=${element.name}&category=${element.category}&duration=${element.duration}&date=${element.date}`);
+            a.setAttribute("href",`edit.html?id=${element.id}`);
             li.appendChild(document.createTextNode(`Name: ${element.name} ,Category: ${element.category} ,Duration: ${element.duration} ,Date: ${element.date}`));
             a.appendChild(li);
             listSong.appendChild(a);
