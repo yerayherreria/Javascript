@@ -1,8 +1,28 @@
+const urlParams = new URLSearchParams(window.location.search);
+let idURL = urlParams.get("id");
+
 const artistname = document.getElementById('artistname');
 const category = document.getElementById('category');
 const duration = document.getElementById('duration');
 const premieredate = document.getElementById('premieredate');
 const form = document.getElementById('form');
+const h1 = document.getElementById('h1');
+const button = document.getElementById('button');
+
+if(idURL!=null){
+  fetch('http://localhost:3000/songs/'+idURL)
+  .then((respose) => respose.json())
+  .then(data => {
+      console.log(data)
+      artistname.value=data.name;
+      category.value=data.category;
+      duration.value=data.duration;
+      premieredate.value=data.date;
+  })
+  h1.innerHTML="Edit Song";
+  button.innerHTML="Edit"
+}
+
 
 const showError = (input, message) => {
   const formField = input.parentElement;
@@ -114,20 +134,41 @@ const checkDate = () => {
 premieredate.addEventListener("change",checkDate);
 
 form.addEventListener('submit', function () {
-  const song = {name:artistname.value,category:category.value,duration:duration.value,date:premieredate.value}
-  fetch("http://localhost:3000/songs",{
-      method : "POST",
-      body : JSON.stringify(song),
-      headers : {
-          "Content-type" : "application/json"
-      }
-  })
-  .then(response => {
-      if(response.ok){
-          return response.json();
-      }
-      return Promise.reject(response)
-  })
-  .catch(err => alert(err));
-  alert("Formulario enviado");
+  if(idURL!=null){
+    const song = {name:artistname.value,category:category.value,duration:duration.value,date:premieredate.value}
+    fetch("http://localhost:3000/songs/"+idURL,{
+        method : "PUT",
+        body : JSON.stringify(song),
+        headers : {
+            "Content-type" : "application/json"
+        }
+    })
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        }
+        return Promise.reject(response)
+    })
+    .catch(err => alert(err));
+    alert("Form send edit");
+    form.reset();
+  } else {
+    const song = {name:artistname.value,category:category.value,duration:duration.value,date:premieredate.value}
+    fetch("http://localhost:3000/songs",{
+        method : "POST",
+        body : JSON.stringify(song),
+        headers : {
+            "Content-type" : "application/json"
+        }
+    })
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        }
+        return Promise.reject(response)
+    })
+    .catch(err => alert(err));
+    alert("Form send add");
+    form.reset();
+  }
 });

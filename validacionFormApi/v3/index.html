@@ -6,9 +6,29 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">	
+	    <span class="navbar-toggler-icon"></span>	
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">	
+	    <ul class="navbar-nav mr-auto">	
+	      <li class="nav-item">	
+	        <a class="nav-link text-white" href="index.html">Add Song</a>	
+	      </li>
+	      <li class="nav-item">	
+	        <a class="nav-link text-white" href="list.html">List Song</a>	
+	      </li>
+	    </ul>
+		<form class="align-items-end">
+	      <div class="justify-content-end">
+	           <button class="btn btn-danger" id="submitButton" type="submit" name="exit">Exit</button>
+	      </div>	      
+	    </form>	
+	  </div>
+	</nav>
   <div class="container">
     <form id="form">
-      <h1>Registrar Canción</h1>
+      <h1 id="h1">Add song</h1>
       <div class="form-group">
         <label for="artistname">Name of artist:</label>
         <input type="text" class="form-control" id="artistname" aria-describedby="emailHelp" placeholder="Enter name of artist">
@@ -29,9 +49,9 @@
         <input type="text" class="form-control" id="premieredate" placeholder="Enter date">
         <small></small>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button id ="button" type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <p><a class="link-opacity-100" href="list.html">View list</a></p>
+    <p><a class="link-opacity-100" href="list.html">View list</a>&nbsp&nbsp&nbsp<a class="link-opacity-100" href="index.html">Add song</a></p>
   </div>
   <script src="validacion.js"></script>
 </body>
