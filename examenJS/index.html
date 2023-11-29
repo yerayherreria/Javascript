@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Examen Ejer2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <form id="signup" class="form">
+      <h1 id="h1">Registrar Incidencia</h1>
+      <div class="form-field">
+        <label for="dateIn">Fecha del incidente:</label>
+        <input type="date" name="dateIn" id="dateIn" autocomplete="off">
+        <small></small>
+      </div>
+      <div class="form-field">
+        <label for="emailIn">Email:</label>
+        <input type="text" name="emailIn" id="emailIn" autocomplete="off">
+        <small></small>
+      </div>
+      <div class="form-field">
+        <label for="username">Nombre de reportante:</label>
+        <input type="text" name="username" id="username" autocomplete="off" readonly>
+        <small></small>
+      </div>
+      <div class="form-field">
+        <label for="phoneNumber">Telefono de contacto:</label>
+        <input type="text" name="phoneNumber" id="phoneNumber" autocomplete="off">
+        <small></small>
+      </div>
+      <div class="form-field">
+        <label for="hour">Hora:</label>
+        <input type="text" name="hour" id="hour" autocomplete="off">
+        <small></small>
+      </div>
+      <div class="form-field">
+        <label for="class">Aula:</label>
+        <select id="class"></select>
+        <small></small>
+      </div>
+      <div class="form-field">
+        <label for="description">Descripcion:</label>
+        <textarea type="text" name="description" id="description" autocomplete="off"></textarea>
+        <small></small>
+      </div>
+      <div class="form-field">
+        <input type="submit" value="Registrarse" id="form">
+      </div>
+      <a href="list.html">Ver lista</a>
+    </form>
+  </div>
+  <script src="validacion.js"></script>
+</body>
+</html>
